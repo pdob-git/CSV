@@ -27,24 +27,24 @@ public class PersonCSV {
     }
 
 
-    public void writeCSV(ArrayList<Person> personarray, String filename) {
+    public void writeCSV(ArrayList<Person> personarray, String filename, String separator) {
        
         try (FileWriter csvWriter = new FileWriter(filename)) {
             csvWriter.append("ID");
-            csvWriter.append(",");
+            csvWriter.append(separator);
             csvWriter.append("FirstName");
-            csvWriter.append(",");
+            csvWriter.append(separator);
             csvWriter.append("LastName");
-            csvWriter.append(",");
+            csvWriter.append(separator);
             csvWriter.append("E-Mail");
             csvWriter.append("\n");
             for (Person person: personarray) {
                 csvWriter.append(String.valueOf(person.getID()));
-                csvWriter.append(",");
+                csvWriter.append(separator);
                 csvWriter.append(person.getFirstName());
-                csvWriter.append(",");
+                csvWriter.append(separator);
                 csvWriter.append(person.getLastName());
-                csvWriter.append(",");
+                csvWriter.append(separator);
                 csvWriter.append(person.getEMail());              
                 csvWriter.append("\n");
             }   
@@ -58,7 +58,7 @@ public class PersonCSV {
         
     }
 
-    public ArrayList<Person> readCSV(String filename) {
+    public ArrayList<Person> readCSV(String filename, String separator) {
         
         ArrayList<Person> personarray = new ArrayList<>();
         
@@ -66,7 +66,7 @@ public class PersonCSV {
             String row;
             int iterator = 0;
             while ((row = csvReader.readLine()) != null) {
-                String[] data = row.split(",");
+                String[] data = row.split(separator);
                 if (iterator != 0){
                     Person person = new Person(   
                         Integer.parseInt(data[0]),

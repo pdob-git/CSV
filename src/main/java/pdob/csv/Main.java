@@ -23,7 +23,12 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        //Name of file
         String filename = "testcsv.csv";
+        //Separator
+        //Sugested comma ",", semicolon";", space " " or tab code in Java "\t"
+        String separator = "\t";
+       
         
         System.out.println("---------------------------------------------------");
         System.out.println("Demo of writing and reading to CSV file");
@@ -41,12 +46,12 @@ public class Main {
         System.out.println("Saving CSV file....");
         PersonCSV CSV = new PersonCSV();
         //Here is save operation
-        CSV.writeCSV(personarray, filename);
+        CSV.writeCSV(personarray, filename, separator);
         
         System.out.println("Reading CSV file....");
         
         //Here is read operation
-        ArrayList<Person> readCSV = CSV.readCSV(filename);
+        ArrayList<Person> readCSV = CSV.readCSV(filename, separator);
         System.out.println("Data Read from CSV file");
         
         //Show Person Array
