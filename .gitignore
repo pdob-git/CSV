@@ -54,4 +54,7 @@ nbdist/
 .nb-gradle/
 /target/
 
+#CSV files
+*.csv
+
 
